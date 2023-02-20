@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div style="margin: 30px;">
+
+    <form action="add" method="POST">
+        {% csrf_token %}
+        Enter a number: <input type="number" name="num1">
+        <br><br>
+        Enter another number: <input type="number" name="num2">
+        <br><br>
+        submit: <input type="submit" value="Add">
+    </form>
+</div>
+
+{% endblock %}

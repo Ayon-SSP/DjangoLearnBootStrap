@@ -133,15 +133,25 @@
         </form>
         </div>
       </nav>
-      <script>
-        <!-- nav bar dark mode to lightweight -->
-        $(function(){ $('#chkToggle2').bootstrapToggle({
-            on: 'Light',
-            off: 'Dark',
-            onstyle: 'navbar navbar-expand-lg navbar-dark bg-dark',
-            offstyle: 'navbar navbar-expand-lg navbar-light bg-light',
-        }) })
-      </script>
 
+      <script src="modeDL.js"></script>
+      <script>
+        $(function() {
+          $('#chkToggle2').change(function() {
+            if($(this).prop('checked')) {
+              document.getElementsByTagName('nav')[0].classList.replace('navbar-light', 'navbar-dark');
+              document.getElementsByTagName('nav')[0].classList.replace('bg-light', 'bg-dark');
+            } else {
+              document.getElementsByTagName('nav')[0].classList.replace('navbar-dark', 'navbar-light');
+              document.getElementsByTagName('nav')[0].classList.replace('bg-dark', 'bg-light');
+              // $('nav').removeClass('navbar-dark');
+              // $('nav').removeClass('bg-dark');
+              // $('nav').addClass('navbar-light');
+              // $('nav').addClass('bg-light');
+
+            }
+          })
+        })
+      </script>
 </body>
 </html>

@@ -12,15 +12,34 @@ def index(request):
     }
     # return render(request, 'index.html', context)
     return render(request, 'bootstrapComp.html')
+
 def docs(request):
     return HttpResponse("<center><h1>Docs 📚 </h1></center>")
+
 def about(request):
-    return HttpResponse("<center><h1>About 🅰️ </h1></center>")
-    # return render(request, 'about.html')
+    # return HttpResponse("<center><h1>About 🅰️ </h1></center>")
+    return render(request, 'about.html')
+
 def services(request):
     return HttpResponse("<center><h1>Services 🛠️ </h1></center>")
+
 def contact(request):
-    return HttpResponse("<center><h1>Contact 📞 </h1></center>")
+    # return HttpResponse("<center><h1>Contact 📞 </h1></center>")
+    
+    if request.method == "POST": # if form is rendered else it will not be rendered
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        desc = request.POST.get('desc')
+        date = request.POST.get('date')
+        
+
+    return render(request, 'contact.html')
+
+    
+
+    return render(request, 'contact.html')
+
 def profile(request):
     # return HttpResponse("<center><h1>Profile 📝 </h1></center>")
     profileLinks = {
@@ -35,6 +54,20 @@ def profile(request):
         'pL4' : 'https://media.istockphoto.com/id/1190616551/vector/head-of-a-little-asian-boy-in-profile-the-face-of-a-child-on-the-side-portrait-avatar.jpg?s=170667a&w=0&k=20&c=g24hXtlRXkXPCEGEtWijmxSV1Xu3TbPWY6oTRLNGTEI='
     }
     return render(request, 'profiles.html',profileLinks)
+
 def bsLearning(request):
     # return HttpResponse("<center><h1>Bootstrap Learning 📚 </h1></center>")
     return render(request, 'bootstrapComp.html')
+
+def LearningDTL(request):
+    # return HttpResponse("<center><h1>Bootstrap Learning 📚 </h1></center>")
+    return render(request, 'learningDTL.html')
+
+def add(request):
+
+    n1 = request.POST['num1']
+    n2 = request.POST['num2']
+
+    res = int(n1) + int(n2)
+    # return HttpResponse("<center><h1>Bootstrap Learning 📚 </h1></center>")
+    return render(request, 'add.html', {'sum': res})

@@ -8,10 +8,11 @@ def index(request):
         'Name' : 'Ayon Karmakar',
         'age' : 21,
         'hobbies' : ['Coding', 'Gaming', 'Sleeping', 'Eating', 'Watching Anime'],
+        # 'hobbies' : {'p' :'Coding'}
         'profileImageUrl': 'https://avatars.githubusercontent.com/u/80549753?s=400&u=74659f0d3a599612e461950bd720e16345ebf4c8&v=4',
     }
-    # return render(request, 'index.html', context)
-    return render(request, 'bootstrapComp.html')
+    return render(request, 'index.html', context)
+    # return render(request, 'bootstrapComp.html')
 
 def docs(request):
     return HttpResponse("<center><h1>Docs 📚 </h1></center>")
@@ -25,18 +26,17 @@ def services(request):
 
 def contact(request):
     # return HttpResponse("<center><h1>Contact 📞 </h1></center>")
-    
+
     if request.method == "POST": # if form is rendered else it will not be rendered
         name = request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         desc = request.POST.get('desc')
         date = request.POST.get('date')
-        
+
 
     return render(request, 'contact.html')
 
-    
 
     return render(request, 'contact.html')
 

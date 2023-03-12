@@ -10,8 +10,7 @@ urlpatterns = [
     path('contact', views.contact, name='contact' ),
     path('profile', views.profile, name='profile' ),
     path('bsLearning', views.bsLearning, name='bsLearning' ),
-    
-    
+
     path('LearningDTL', views.LearningDTL, name='bsLearning' ),
     path('add', views.add, name='Adding' ),
 ]

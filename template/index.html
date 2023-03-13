@@ -44,6 +44,13 @@
 </head>
 
 <body>
+    {% comment %} {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endcomment %}
 
     <h1 style="text-align:center">Profile 🙎‍♂️</h1>
     <!-- <h2 style="text-align:center">User Profile Card</h2> -->

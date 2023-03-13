@@ -1,6 +1,10 @@
 from datetime import datetime
 from django.shortcuts import render, HttpResponse
 from home.models import Contact
+from django.contrib import messages
+
+
+
 # Create your views here.
 def index(request):
     # return HttpResponse("<center><h1>Home 🏠 </h1></center>")
@@ -12,6 +16,7 @@ def index(request):
         # 'hobbies' : {'p' :'Coding'}
         'profileImageUrl': 'https://avatars.githubusercontent.com/u/80549753?s=400&u=74659f0d3a599612e461950bd720e16345ebf4c8&v=4',
     }
+    # messages.success(request, 'Your message has been sent!')
     return render(request, 'index.html', context)
     # return render(request, 'bootstrapComp.html')
 
@@ -36,8 +41,10 @@ def contact(request):
         date = request.POST.get('date')
         # datetime.today().strftime('%Y-%m-%d')
 
+        messages.success(request, 'Your message has been saved ✅!')
         contact = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         contact.save()
+
 
 
     return render(request, 'contact.html')

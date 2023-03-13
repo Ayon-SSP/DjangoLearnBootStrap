@@ -1,5 +1,6 @@
+from datetime import datetime
 from django.shortcuts import render, HttpResponse
-
+from home.models import Contact
 # Create your views here.
 def index(request):
     # return HttpResponse("<center><h1>Home 🏠 </h1></center>")
@@ -33,6 +34,10 @@ def contact(request):
         phone = request.POST.get('phone')
         desc = request.POST.get('desc')
         date = request.POST.get('date')
+        # datetime.today().strftime('%Y-%m-%d')
+
+        contact = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
+        contact.save()
 
 
     return render(request, 'contact.html')

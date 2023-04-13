@@ -1,3 +1,6 @@
 [submodule "Django-REST-framework"]
 	path = Django-REST-framework
 	url = https://github.com/Ayon-SSP/Django-REST-framework
+[submodule "React-Django-Integration"]
+	path = React-Django-Integration
+	url = https://github.com/Ayon-SSP/React-Django-Integration
